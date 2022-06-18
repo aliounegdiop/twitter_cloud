@@ -18,7 +18,7 @@ def authenticate(consumer_key, consumer_secret,access_token_key, access_token_se
 def get_user_tweeets(query,api):
     date_since = "2022-06-17"
     alltweets = [] 
-    new_tweets = api.search_tweets(q = screen_name,count=20000,show_user=True,since=date_since)
+    new_tweets = api.search_tweets(q = query,count=20000,show_user=True,since=date_since)
     alltweets.extend(new_tweets)
     outtweets = [tweet.text for tweet in alltweets] 
     return outtweets
