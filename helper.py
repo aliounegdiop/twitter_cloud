@@ -15,10 +15,9 @@ def authenticate(consumer_key, consumer_secret,access_token_key, access_token_se
     api = tweepy.API(auth)
     return api
 
-def get_user_tweeets(query,api):
-    date_since = "2022-06-17"
+def get_user_tweeets(screen_name,api):
     alltweets = [] 
-    new_tweets = api.search_tweets(q = query,count=20000,show_user=True,since=date_since)
+    new_tweets = api.user_timeline(screen_name = screen_name,count=20000)
     alltweets.extend(new_tweets)
     outtweets = [tweet.text for tweet in alltweets] 
     return outtweets
